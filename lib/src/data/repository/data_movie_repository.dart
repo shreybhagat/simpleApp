@@ -13,7 +13,7 @@ class DataMovieRepository extends MovieRepository {
   Future<Result> fetchMovieList(String apiKey) async {
     print("fetchMovieList called");
     final response = await new Client()
-        .get("http://api.themoviedb.org/3/movie/popular?api_key=$apiKey");
+        .get("https://api.themoviedb.org/3/movie/popular?api_key=$apiKey");
     print(response.body.toString());
     if (response.statusCode == 200) {
       return Result.fromJson(json.decode(response.body));
